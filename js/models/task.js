@@ -16,5 +16,5 @@ return `<li data-id="${this.id}"><button class="destroy-task">x</button> ${this.
 }
 
 Task.prototype.build = function(){
- $(`#list-${this.id}`).append(this.liEl())
+ $(`#list-${this.list.id}`).append(this.liEl())
 }

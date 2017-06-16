@@ -10,12 +10,18 @@ function TasksController(){
 
 TasksController.prototype.init = function(){
   this.$addTaskForm.on('submit', (e) => {
-    e.preventDefault()
-    let list = $('#select_list :selected').text();
-    let desc = this.$taskDescriptionInput.val()
-    let priority = this.$taskPriorityInput.val()
-    debugger
-    let newTask = new Task(desc, priority, list)
+    e.preventDefault();
+
+    let taskList = List.all[($('select').val())];
+    let taskDesc = this.$taskDescriptionInput.val();
+    let taskPriority = this.$taskPriorityInput.val();
+    let newTask = new Task(taskDesc, taskPriority,taskList);
     newTask.build()
+
+    $('.destroy-task').on('click', (e) => {
+       e.preventDefault()
+       e.target.parentElement.remove()
+       taskList.tasks.splice(newTask.id, 1, null)
+     })
   })
 }

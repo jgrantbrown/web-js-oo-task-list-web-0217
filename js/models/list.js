@@ -2,10 +2,10 @@
 // List Model
 
 function List(title){
-this.id= List.all.length;
+this.id= this.constructor.all.length;
 List.all.push(this);
 this.title = title;
-this.tasks=[];
+this.tasks = [];
  }
 
 List.prototype.listEl = function() {
@@ -21,4 +21,4 @@ List.prototype.build = function() {
    $('#select_list').append(this.optionEl());
 };
 
- List.all = [];
+List.all = [];
