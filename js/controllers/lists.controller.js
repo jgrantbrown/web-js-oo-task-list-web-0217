@@ -20,7 +20,7 @@ ListsController.prototype.init = function() {
       let x = $('#add_list input:first').val()
       let newList = new List(x)
       newList.build()
-
+      $("form").trigger("reset")
 
     $('.destroy-list').on('click', (e)=>{
         e.preventDefault()

@@ -17,6 +17,7 @@ TasksController.prototype.init = function(){
     let taskPriority = this.$taskPriorityInput.val();
     let newTask = new Task(taskDesc, taskPriority,taskList);
     newTask.build()
+    $("form").trigger("reset")
 
     $('.destroy-task').on('click', (e) => {
        e.preventDefault()
